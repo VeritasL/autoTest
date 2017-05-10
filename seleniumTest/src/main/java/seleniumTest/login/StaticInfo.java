@@ -50,7 +50,13 @@ public class StaticInfo{
 		WebElement e=driver.findElement(By.xpath(pros.getProperty("xAboutUs")));
 		Assert.assertEquals(pros.getProperty("aboutUs").toString(),e.getText().toString());
 		e.click();
-		Assert.assertTrue(driver.getTitle().contains(pros.getProperty("aboutComp")));
+		for(String handle:driver.getWindowHandles()){
+			driver.switchTo().window(handle);
+			if(driver.getTitle().toString().equals(pros.getProperty("title").toString())){
+				continue;
+			}
+			Assert.assertTrue(driver.getTitle().contains(pros.getProperty("aboutComp")));
+		}		
 	}
 	
 	@Test
@@ -58,7 +64,13 @@ public class StaticInfo{
 		WebElement e=driver.findElement(By.xpath(pros.getProperty("xCoop")));
 		Assert.assertEquals(pros.getProperty("coop").toString(),e.getText().toString());
 		e.click();
-		Assert.assertTrue(driver.getTitle().contains(pros.getProperty("coop")));
+		for(String handle:driver.getWindowHandles()){
+			driver.switchTo().window(handle);
+			if(driver.getTitle().toString().equals(pros.getProperty("title").toString())){
+				continue;
+			}
+			Assert.assertTrue(driver.getTitle().contains(pros.getProperty("coop")));
+		}		
 	}
 	
 	@Test
@@ -66,7 +78,13 @@ public class StaticInfo{
 		WebElement e=driver.findElement(By.xpath(pros.getProperty("xLegal")));
 		Assert.assertEquals(pros.getProperty("legal").toString(),e.getText().toString());
 		e.click();
-		Assert.assertTrue(driver.getTitle().contains(pros.getProperty("legal")));
+		for(String handle:driver.getWindowHandles()){
+			driver.switchTo().window(handle);
+			if(driver.getTitle().toString().equals(pros.getProperty("title").toString())){
+				continue;
+			}
+			Assert.assertTrue(driver.getTitle().contains(pros.getProperty("legal")));
+		}		
 	}
 	
 	@Test
@@ -74,7 +92,13 @@ public class StaticInfo{
 		WebElement e=driver.findElement(By.xpath(pros.getProperty("xContactUs")));
 		Assert.assertEquals(pros.getProperty("contactUs").toString(),e.getText().toString());
 		e.click();
-		Assert.assertTrue(driver.getTitle().contains(pros.getProperty("contactUs")));
+		for(String handle:driver.getWindowHandles()){
+			driver.switchTo().window(handle);
+			if(driver.getTitle().toString().equals(pros.getProperty("title").toString())){
+				continue;
+			}
+			Assert.assertTrue(driver.getTitle().contains(pros.getProperty("contactUs")));
+		}		
 	}
 	
 	@Test
