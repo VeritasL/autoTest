@@ -52,6 +52,7 @@ public class StaticInfo{
 		e.click();
 		for(String handle:driver.getWindowHandles()){
 			driver.switchTo().window(handle);
+			// On the basis that title is correct.
 			if(driver.getTitle().toString().equals(pros.getProperty("title").toString())){
 				continue;
 			}
